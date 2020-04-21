@@ -31,8 +31,10 @@ async function readBody(body) {
 async function handleRequest(request) {
   const values = {
     rock: 1,
-    scissors: 2,
-    paper: 3,
+    paper: 2,
+    scissors: 3,
+    lizard: 4,
+    spock: 5,
   };
 
   globalThis.response = {
@@ -81,7 +83,8 @@ async function handleRequest(request) {
     return new Response(globalThis.response.body, {
       status: globalThis.response.status,
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+	"Access-Control-Allow-Origin": "*",
       }
     });
   } catch (e) {
